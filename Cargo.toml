@@ -27,8 +27,8 @@ tempfile = "3.2"
 github = { repository = "webern/cargo-readme" }
 crates-io = { repository = "https://crates.io/crates/grss_clone" }
 maintenance = { status = "actively-developed" }
-license = { badge = "MIT" }
 docs = { badge = "https://docs.rs/grss_clone/badge.svg" }
 build = { badge = "https://github.com/rsimon64-gh/grss/actions/workflows/ci.yml/badge.svg" }
 coverage = { badge = "https://coveralls.io/repos/github/rsimon64-gh/grss/badge.svg" }
 demo = { badge = "https://img.shields.io/badge/demo-online-brightgreen", repository = "https://your-demo-link.com" }
+license = { badge = "MIT" }
