@@ -2,7 +2,7 @@
 
 # {{crate}}
 
-[Initial tutorial}(https://rust-cli.github.io/book/index.html)
+[Initial tutorial](https://rust-cli.github.io/book/index.html)
 
 {{readme}}
 

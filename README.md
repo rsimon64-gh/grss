@@ -2,7 +2,7 @@
 
 # grss_clone
 
-[Initial tutorial}(https://rust-cli.github.io/book/index.html)
+[Initial tutorial](https://rust-cli.github.io/book/index.html)
 
 grss_clone is a command line search tool that finds occurrences of a pattern in a file.
 
