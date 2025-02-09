@@ -6,12 +6,12 @@ Following the tutorial here: [https://rust-cli.github.io/book/tutorial/](Rust Cl
 ## Installation
 
 ```bash
-cargo install grrs
+cargo install grep_clone
 ```
 
 ## Usage
 ```bash
-grrs <pattern> <path>
+grep_clone <pattern> <path>
 ```
 
 ### Where:
@@ -22,7 +22,7 @@ path: The path to the file to search in
 ## Example
 
 ```bash
-grep-clone "hello" test.txt
+grep_clone "hello" test.txt
 ```
 
 License
@@ -40,4 +40,3 @@ This project uses Git hooks to ensure code quality. The pre-commit hook will:
 - Run linting with `clippy`
 - Execute all tests
 
-The hooks are automatically installed when you clone the repository. If they're not executable, run:

@@ -1,2 +1,2 @@
-window.ALL_CRATES = ["anstream","anstyle","anstyle_parse","anstyle_query","anyhow","clap","clap_builder","clap_derive","clap_lex","colorchoice","grep_clone","heck","is_terminal_polyfill","proc_macro2","quote","strsim","syn","unicode_ident","utf8parse"];
-//{"start":21,"fragment_lengths":[10,10,16,16,9,7,15,14,11,14,13,7,23,14,8,9,6,16,12]}
+window.ALL_CRATES = ["grep_clone"];
+//{"start":21,"fragment_lengths":[12]}
