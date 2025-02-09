@@ -46,6 +46,7 @@ struct Args {
 /// * The file does not exist
 /// * The program doesn't have permission to read the file
 /// * The file contains invalid UTF-8
+///
 pub fn find_matches(pattern: &str, path: &std::path::PathBuf) -> Result<()> {
     use std::fs::File;
     use std::io::{BufRead, BufReader};
