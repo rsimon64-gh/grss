@@ -2,6 +2,8 @@
 
 # {{crate}}
 
+[Initial tutorial}(https://rust-cli.github.io/book/index.html)
+
 {{readme}}
 
 Current version: {{version}}
