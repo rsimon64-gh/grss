@@ -123,3 +123,32 @@ fn find_matches_with_utf8_characters() -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
+
+#[test]
+fn find_matches_with_multiple_patterns() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "First pattern\nSecond pattern\nAnother line")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("pattern").arg(file.path());
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("First pattern\nSecond pattern"));
+
+    Ok(())
+}
+
+#[test]
+fn find_matches_in_large_file() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    let content = "test\n".repeat(10000);
+    fs::write(&file, &content)?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("test").arg(file.path());
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("test").count(10000));
+
+    Ok(())
+}
