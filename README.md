@@ -22,7 +22,7 @@ path: The path to the file to search in
 ## Example
 
 ```bash
-grrs "hello" test.txt
+grep-clone "hello" test.txt
 ```
 
 License
