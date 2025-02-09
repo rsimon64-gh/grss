@@ -9,7 +9,7 @@ fn version_flag_works() -> Result<(), Box<dyn Error>> {
     cmd.arg("--version");
     cmd.assert()
         .success()
-        .stdout(predicate::str::contains("grss_clone 0.4.4"));
+        .stdout(predicate::str::contains("grss_clone 0.5.0"));
 
     Ok(())
 }
