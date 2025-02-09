@@ -1,7 +1,7 @@
-# grrs
+# grss_clone
 
 A command-line tool to search files, written in Rust.
-Following the tutorial here: [https://rust-cli.github.io/book/tutorial/](Rust Client Tutorial)
+Following the tutorial here: (https://rust-cli.github.io/book/tutorial/)[Rust Client Tutorial]
 
 ## Installation
 
@@ -24,6 +24,9 @@ path: The path to the file to search in
 ```bash
 grss_clone "hello" test.txt
 ```
+
+Changelog
+See the CHANGELOG for a list of all notable changes.
 
 ## License
 
