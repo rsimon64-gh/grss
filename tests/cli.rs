@@ -1,30 +1,38 @@
-use assert_cmd::Command;
-use predicates::prelude::*;
-use std::error::Error;
-use std::fs;
-use tempfile::NamedTempFile;
-
 #[test]
-fn find_content_in_file() -> Result<(), Box<dyn Error>> {
-    let file = NamedTempFile::new()?;
-    fs::write(&file, "A test\nActual content\nMore content\nAnother test")?;
+fn test_find_matches() {
+    let content = "\
+        Rust:
+        safe, fast, productive.
+        Pick three.
+        Trust me.";
 
-    let mut cmd = Command::cargo_bin("grss_clone")?;
-    cmd.arg("test").arg(file.path());
-    cmd.assert()
-        .success()
-        .stdout(predicate::str::contains("A test\nAnother test"));
-
-    Ok(())
+    let pattern = "safe|productive";
+    let mut result = Vec::new();
+    grss_clone::find_matches(content, pattern, &mut result).unwrap();
+    let result = String::from_utf8(result).unwrap();
+    assert_eq!(result, "safe, fast, productive.\n");
 }
 
 #[test]
-fn file_doesnt_exist() -> Result<(), Box<dyn Error>> {
-    let mut cmd = Command::cargo_bin("grss_clone")?;
-    cmd.arg("test").arg("non_existent_file.txt");
-    cmd.assert()
-        .failure()
-        .stderr(predicate::str::contains("No such file or directory"));
+fn test_find_matches_no_match() {
+    let content = "\
+        Rust:
+        safe, fast, productive.
+        Pick three.
+        Trust me.";
 
-    Ok(())
+    let pattern = "notfound";
+    let mut result = Vec::new();
+    grss_clone::find_matches(content, pattern, &mut result).unwrap();
+    let result = String::from_utf8(result).unwrap();
+    assert_eq!(result, "");
+}
+
+#[test]
+fn test_find_matches_invalid_regex() {
+    let content = "Rust";
+    let pattern = "("; // Invalid regex
+    let mut result = Vec::new();
+    let error = grss_clone::find_matches(content, pattern, &mut result).unwrap_err();
+    assert_eq!(error.kind(), std::io::ErrorKind::InvalidInput);
 }

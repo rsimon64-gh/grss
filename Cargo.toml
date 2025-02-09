@@ -1,6 +1,6 @@
 [package]
 name = "grss_clone"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Reinhard Simon <rsimon64@web.de>"]
 edition = "2021"
 license = "MIT"
@@ -15,6 +15,7 @@ exclude = ["/.github", "*.log"]
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
 anyhow = "1.0"
+regex = "1"
 
 [dev-dependencies]
 assert_cmd = "2.0.16"
