@@ -1,4 +1,4 @@
-# grrs_clone
+# grss_clone
 
 A command-line tool to search files, written in Rust.
 Following the tutorial here: (https://rust-cli.github.io/book/tutorial/)[Rust Client Tutorial]
@@ -6,12 +6,12 @@ Following the tutorial here: (https://rust-cli.github.io/book/tutorial/)[Rust Cl
 ## Installation
 
 ```bash
-cargo install grrs_clone
+cargo install grss_clone
 ```
 
 ## Usage
 ```bash
-grrs_clone <pattern> <path>
+grss_clone <pattern> <path>
 ```
 
 ### Where:
@@ -22,7 +22,7 @@ path: The path to the file to search in
 ## Example
 
 ```bash
-grrs_clone "hello" test.txt
+grss_clone "hello" test.txt
 ```
 
 Changelog

@@ -1,5 +1,5 @@
 // Add this at the top of the file
-#![doc(html_root_url = "https://docs.rs/grrs_clone")]
+#![doc(html_root_url = "https://docs.rs/grss_clone")]
 use anyhow::Result;
 use clap::Parser;
 
@@ -33,7 +33,7 @@ struct Args {
 /// # Examples
 ///
 /// ```no_run
-/// use grrs_clone::find_matches;
+/// use grss_clone::find_matches;
 ///
 /// let pattern = "TODO";
 /// let path = "src/main.rs";
@@ -62,7 +62,7 @@ pub fn find_matches(pattern: &str, path: &std::path::PathBuf) -> Result<()> {
     Ok(())
 }
 
-/// Main entry point for the grrs_clone application
+/// Main entry point for the grss_clone application
 ///
 /// Parses command line arguments and searches for the specified pattern
 /// in the given file.

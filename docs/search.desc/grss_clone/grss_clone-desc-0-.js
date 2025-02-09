@@ -1,1 +1,1 @@
-searchState.loadedDescShard("grss_clone", 0, "grrs_clone is a command line search tool that finds …")
+searchState.loadedDescShard("grss_clone", 0, "grss_clone is a command line search tool that finds …")

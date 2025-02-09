@@ -3,7 +3,6 @@
 Cargo.lock
 .env
 .idea/
-.vscode/
 *.pdb
 debug/
 

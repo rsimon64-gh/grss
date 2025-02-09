@@ -1,16 +1,16 @@
 [package]
-name = "grrs_clone"
+name = "grss_clone"
 version = "0.3.0"
 authors = ["Reinhard Simon <rsimon64@web.de>"]
 edition = "2021"
 license = "MIT"
 description = "A command-line search tool similar to grep"
 readme = "README.md"
-homepage = "https://github.com/rsimon64-gh/grrs"
-repository = "https://github.com/rsimon64-gh/grrs"
+homepage = "https://github.com/rsimon64-gh/grss"
+repository = "https://github.com/rsimon64-gh/grss"
 keywords = ["cli", "search", "grep", "find", "pattern"]
 categories = ["command-line-utilities"]
-documentation = "https://github.com/rsimon64-gh/grrs#readme"
+documentation = "https://github.com/rsimon64-gh/grss#readme"
 exclude = ["/.github", "*.log"]
 
 [dependencies]

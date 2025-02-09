@@ -1,4 +1,4 @@
-//! grrs_clone is a command line search tool that finds occurrences of a pattern in a file.
+//! grss_clone is a command line search tool that finds occurrences of a pattern in a file.
 //!
 //! # Features
 //!
