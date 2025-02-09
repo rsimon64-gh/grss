@@ -152,3 +152,29 @@ fn find_matches_in_large_file() -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
+
+#[test]
+fn test_valid_arguments() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "A test\nActual content\nMore content\nAnother test")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("test").arg(file.path());
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("A test\nAnother test"));
+
+    Ok(())
+}
+
+#[test]
+fn test_no_matches() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "Some content\nMore content\nEven more content")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("test").arg(file.path());
+    cmd.assert().success().stdout(predicate::str::is_empty());
+
+    Ok(())
+}
