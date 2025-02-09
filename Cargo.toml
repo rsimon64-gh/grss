@@ -1,15 +1,17 @@
 [package]
 name = "grep_clone"
 version = "0.2.0"
-authors = ["Reinhard Simon <rsimon64@gmail.com>"]
+authors = ["Reinhard Simon <rsimon64@web.de>"]
 edition = "2021"
 license = "MIT"
-description = "A tool to search files"
+description = "A command-line search tool similar to grep"
 readme = "README.md"
 homepage = "https://github.com/rsimon64-gh/grrs"
 repository = "https://github.com/rsimon64-gh/grrs"
 keywords = ["cli", "search", "grep", "find", "pattern"]
 categories = ["command-line-utilities"]
+documentation = "https://github.com/rsimon64-gh/grrs#readme"
+exclude = ["/.github", "*.log"]
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
