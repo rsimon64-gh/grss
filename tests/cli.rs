@@ -24,7 +24,7 @@ fn file_doesnt_exist() -> Result<(), Box<dyn Error>> {
     cmd.arg("test").arg("non_existent_file.txt");
     cmd.assert()
         .failure()
-        .stderr(predicate::str::contains("could not read file"));
+        .stderr(predicate::str::contains("No such file or directory"));
 
     Ok(())
 }

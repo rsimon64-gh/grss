@@ -6,3 +6,6 @@ Cargo.lock
 .vscode/
 *.pdb
 debug/
+
+/target/
+!/docs/
