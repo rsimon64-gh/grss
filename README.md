@@ -22,9 +22,3 @@ grss_clone is a command line search tool that finds occurrences of a pattern in 
 
 The tool reads files line by line to handle large files efficiently without
 loading the entire file into memory.
-
-Current version: 0.4.2
-
-Some additional info here
-
-License: MIT
