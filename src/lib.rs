@@ -14,7 +14,7 @@ pub fn find_matches(
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn find_a_match() {
         let mut result = Vec::new();
