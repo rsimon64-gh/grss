@@ -11,7 +11,7 @@ repository = "https://github.com/rsimon64-gh/grrs"
 keywords = ["cli", "search", "grep", "find", "pattern"]
 categories = ["command-line-utilities"]
 documentation = "https://github.com/rsimon64-gh/grrs#readme"
-exclude = ["/.github", "*.log"]
+exclude = ["/.github", "*.log", "target/**/*"]
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }

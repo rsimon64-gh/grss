@@ -25,18 +25,9 @@ path: The path to the file to search in
 grep_clone "hello" test.txt
 ```
 
-License
-This project is licensed under 
+## License
 
-This project is licensed under either of
+This project is licensed under:
 
-Apache License, Version 2.0, (LICENSE-APACHE or http://www.apache.org/licenses/LICENSE-2.0)
 MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
-
-## Development
-
-This project uses Git hooks to ensure code quality. The pre-commit hook will:
-- Check code formatting with `rustfmt`
-- Run linting with `clippy`
-- Execute all tests
 
