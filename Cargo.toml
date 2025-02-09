@@ -1,5 +1,5 @@
 [package]
-name = "grss_clone"
+name = "grrs_clone"
 version = "0.3.0"
 authors = ["Reinhard Simon <rsimon64@web.de>"]
 edition = "2021"

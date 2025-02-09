@@ -4,7 +4,7 @@ use std::error::Error;
 
 #[test]
 fn help_message_on_no_args() -> Result<(), Box<dyn Error>> {
-    let mut cmd = Command::cargo_bin("grss_clone")?;
+    let mut cmd = Command::cargo_bin("grrs_clone")?;
 
     cmd.assert()
         .failure()
@@ -15,7 +15,7 @@ fn help_message_on_no_args() -> Result<(), Box<dyn Error>> {
 
 #[test]
 fn help_message_on_help_flag() -> Result<(), Box<dyn Error>> {
-    let mut cmd = Command::cargo_bin("grss_clone")?;
+    let mut cmd = Command::cargo_bin("grrs_clone")?;
 
     cmd.arg("--help");
     cmd.assert()
@@ -29,12 +29,12 @@ fn help_message_on_help_flag() -> Result<(), Box<dyn Error>> {
 
 #[test]
 fn help_message_on_version_flag() -> Result<(), Box<dyn Error>> {
-    let mut cmd = Command::cargo_bin("grss_clone")?;
+    let mut cmd = Command::cargo_bin("grrs_clone")?;
 
     cmd.arg("--version");
     cmd.assert()
         .success()
-        .stdout(predicate::str::contains("grss_clone"));
+        .stdout(predicate::str::contains("grrs_clone"));
 
     Ok(())
 }
