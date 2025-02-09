@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 /// Search for a pattern in a file and display the lines that contain it.
 #[derive(Parser)]
-#[command(version, about, long_about = None)]
+#[command(author, version, about, long_about = None)]
 struct Cli {
     /// The pattern to look for
     pattern: String,
