@@ -14,6 +14,22 @@ fn test_find_matches() {
 }
 
 #[test]
+fn test_find_matches_phrase() {
+    let content = "\
+        Rust:
+        safe, fast, productive.
+        Pick three.
+        Trust me.
+        This phrase does not exist.";
+
+    let pattern = "does .* exist";
+    let mut result = Vec::new();
+    grss_clone::find_matches(content, pattern, &mut result).unwrap();
+    let result = String::from_utf8(result).unwrap();
+    assert_eq!(result, "This phrase does not exist.\n");
+}
+
+#[test]
 fn test_find_matches_no_match() {
     let content = "\
         Rust:
