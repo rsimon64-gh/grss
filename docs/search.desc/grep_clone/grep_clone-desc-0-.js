@@ -1,1 +1,0 @@
-searchState.loadedDescShard("grep_clone", 0, "grep_clone is a command line search tool that finds …")
