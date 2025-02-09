@@ -1,47 +1,43 @@
-name: Deploy Rust Docs
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches:
-      - main  # Change to your default branch
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
+  # Single deploy job since we're just deploying
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Build documentation
-        run: cargo doc --no-deps
-
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload only docs directory
+          path: 'docs/'
       - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Create and switch to gh-pages branch
-          git checkout --orphan gh-pages
-
-          # Remove existing files and copy generated docs
-          git rm -rf .
-          cp -r target/doc/* .
-
-          # Commit and push
-          git add .
-          git commit -m "Update documentation"
-          git push -f origin gh-pages
-
-      - name: Enable GitHub Pages (First-Time Setup)
-        run: |
-          gh api --method PATCH \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            /repos/${{ github.repository }} \
-            -F default_branch='gh-pages'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        id: deployment
+        uses: actions/deploy-pages@v4
