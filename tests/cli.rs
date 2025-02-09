@@ -1,3 +1,9 @@
+use assert_cmd::Command;
+use predicates::prelude::*;
+use std::error::Error;
+use std::fs;
+use tempfile::NamedTempFile;
+
 #[test]
 fn test_find_matches() {
     let content = "\
@@ -51,4 +57,69 @@ fn test_find_matches_invalid_regex() {
     let mut result = Vec::new();
     let error = grss_clone::find_matches(content, pattern, &mut result).unwrap_err();
     assert_eq!(error.kind(), std::io::ErrorKind::InvalidInput);
+}
+
+#[test]
+fn find_content_in_file() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "A test\nActual content\nMore content\nAnother test")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("test").arg(file.path());
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("A test\nAnother test"));
+
+    Ok(())
+}
+
+#[test]
+fn file_doesnt_exist() -> Result<(), Box<dyn Error>> {
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("test").arg("non_existent_file.txt");
+    cmd.assert()
+        .failure()
+        .stderr(predicate::str::contains("No such file or directory"));
+
+    Ok(())
+}
+
+#[test]
+fn find_no_matches() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "Some content\nMore content\nEven more content")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("test").arg(file.path());
+    cmd.assert().success().stdout(predicate::str::is_empty());
+
+    Ok(())
+}
+
+#[test]
+fn find_matches_with_special_characters() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "Special characters: !@#$%^&*()\nAnother line")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("!@#$%^&*()").arg(file.path());
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("Special characters: !@#$%^&*()"));
+
+    Ok(())
+}
+
+#[test]
+fn find_matches_with_utf8_characters() -> Result<(), Box<dyn Error>> {
+    let file = NamedTempFile::new()?;
+    fs::write(&file, "UTF-8 characters: 你好，世界\nAnother line")?;
+
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("你好").arg(file.path());
+    cmd.assert()
+        .success()
+        .stdout(predicate::str::contains("UTF-8 characters: 你好，世界"));
+
+    Ok(())
 }
