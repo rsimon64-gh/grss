@@ -1,36 +1,22 @@
+[![Workflow Status](https://github.com/webern/cargo-readme/workflows/main/badge.svg)](https://github.com/webern/cargo-readme/actions?query=workflow%3A%22main%22)
+
 # grss_clone
 
-A command-line tool to search files, written in Rust.
-Following the tutorial here: (https://rust-cli.github.io/book/tutorial/)[Rust Client Tutorial]
+grss_clone is a command line search tool that finds occurrences of a pattern in a file.
 
-## Installation
+## Features
 
-```bash
-cargo install grss_clone
-```
+- Search for text patterns in files
+- Case-sensitive search
+- Line-by-line output of matches
 
-## Usage
-```bash
-grss_clone <pattern> <path>
-```
+## Performance
 
-### Where:
+The tool reads files line by line to handle large files efficiently without
+loading the entire file into memory.
 
-pattern: The text pattern to search for
-path: The path to the file to search in
+Current version: 0.3.0
 
-## Example
+Some additional info here
 
-```bash
-grss_clone "hello" test.txt
-```
-
-Changelog
-See the CHANGELOG for a list of all notable changes.
-
-## License
-
-This project is licensed under:
-
-MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
-
+License: MIT
