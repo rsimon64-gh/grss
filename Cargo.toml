@@ -1,0 +1,19 @@
+[package]
+name = "grrs"
+version = "0.1.0"
+authors = ["Reinhard Simon <rsimon64@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "A tool to search files"
+readme = "README.md"
+homepage = "https://github.com/you/grrs"
+repository = "https://github.com/you/grrs"
+keywords = ["cli", "search", "demo"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+anyhow = "1.0"
+assert_cmd = "2.0.16"
+predicates = "3.1.3"
+tempfile = "3.2"
+assert_fs = "1.1.1"
