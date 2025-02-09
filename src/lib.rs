@@ -1,4 +1,4 @@
-//! grep_clone is a command line search tool that finds occurrences of a pattern in a file.
+//! grss_clone is a command line search tool that finds occurrences of a pattern in a file.
 //!
 //! # Features
 //!
@@ -11,12 +11,12 @@
 //! Basic usage:
 //!
 //! ```no_run
-//! use grep_clone;
+//! use grss_clone;
 //! use std::io;
 //!
 //! let pattern = "pattern";
 //! let content = "some text\nwith pattern\nmore text";
-//! grep_clone::find_matches(content, pattern, io::stdout()).unwrap();
+//! grss_clone::find_matches(content, pattern, io::stdout()).unwrap();
 //! ```
 //!
 //! # Error Handling

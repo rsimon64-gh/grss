@@ -6,12 +6,12 @@ Following the tutorial here: [https://rust-cli.github.io/book/tutorial/](Rust Cl
 ## Installation
 
 ```bash
-cargo install grep_clone
+cargo install grss_clone
 ```
 
 ## Usage
 ```bash
-grep_clone <pattern> <path>
+grss_clone <pattern> <path>
 ```
 
 ### Where:
@@ -22,7 +22,7 @@ path: The path to the file to search in
 ## Example
 
 ```bash
-grep_clone "hello" test.txt
+grss_clone "hello" test.txt
 ```
 
 ## License
