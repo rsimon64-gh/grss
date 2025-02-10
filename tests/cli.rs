@@ -1,7 +1,9 @@
 use assert_cmd::Command;
+
 use predicates::prelude::*;
 use std::error::Error;
 use std::fs;
+
 use tempfile::NamedTempFile;
 
 #[test]
@@ -175,6 +177,27 @@ fn test_no_matches() -> Result<(), Box<dyn Error>> {
     let mut cmd = Command::cargo_bin("grss_clone")?;
     cmd.arg("test").arg(file.path());
     cmd.assert().success().stdout(predicate::str::is_empty());
+
+    Ok(())
+}
+
+#[test]
+fn test_missing_path_argument() -> Result<(), Box<dyn Error>> {
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.arg("somepattern");
+    cmd.assert().failure().stderr(predicate::str::contains(
+        "error: the following required arguments were not provided:\n  <PATH>",
+    ));
+
+    Ok(())
+}
+
+#[test]
+fn test_missing_both_arguments() -> Result<(), Box<dyn Error>> {
+    let mut cmd = Command::cargo_bin("grss_clone")?;
+    cmd.assert().failure().stderr(predicate::str::contains(
+        "error: the following required arguments were not provided:\n  <PATTERN>\n  <PATH>",
+    ));
 
     Ok(())
 }
